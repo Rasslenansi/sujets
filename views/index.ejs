@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Qui fait quoi</title>
+  </head>
+  <body>
+    Vous avez une question à proposer ?
+    <% if (sujets) != "undefined" {%>
+    <select name="domain">
+        <% sujets.forEach(function(sujet){ %>
+      <option value="<%= sujet %>"></option>
+      <%})%>
+    </select>
+    <%}%>
+    Vous etes rattachés à
+    <% if (rattachements) != "undefined" {%>
+    <select name="rattach">
+        <% rattachements.forEach(function(rattach){ %>
+      <option value="<%= rattach %>"></option>
+      <%})%>
+    </select>
+    <%}%>
+    <button type="button" name="button" onclick="search()">OK</button>
+    <table>
+      <tr>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Fonction</th>
+        <th>Rarrachement</th>
+        <th>Mail</th>
+        <th>Tél</th>
+      </tr>
+      <div id="data">
+
+      </div>
+    </table>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+    var socket = io.connect("http://localhost:80");
+    function search() {
+      var domain = document.getElementsByName("domain").value;
+      var rattach = document.getElementsByName("rattach").value;
+      socket.emit("search", {domain, rattach});
+    }
+    socket.on("found", function (contact) {
+      contact.forEach(function (cont) {
+        document.getElementById("data").innerHTML += "<tr><td>"+cont.nom+"</td><td>"+cont.prenom+"</td><td>"+cont.fonction+"</td><td>"+cont.rattach+"</td><td>"+cont.mail+"</td><td>"+cont.tel+"</td></tr>"
+      });
+    });
+    </script>
+  </body>
+</html>
