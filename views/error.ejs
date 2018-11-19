@@ -2,9 +2,11 @@
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Administrateur</title>
+    <title>Error</title>
   </head>
   <body>
-    
+    <% if (error != "undefined") {%>
+      <%= error %>
+      <% } %>
   </body>
 </html>

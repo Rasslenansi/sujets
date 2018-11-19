@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 
 //declare app and requirements
-app = express();
+var app = express();
 app.set("view engine", "ejs");
 app.use(express.static(__dirname+"/public"));
 app.use(bodyParser.urlencoded());
@@ -34,17 +34,46 @@ app.get("/index", function (req,res) {
     }
   });
 });
+// ######[Admin]########
 // admin
 app.get("/admin", function (req,res) {
   if (req.session.admin) {
-    res.render("profile.ejs");
+    res.render("profile", {admin: req.session.admin});
   }
   else {
-    res.render("login.ejs")
+    res.render("login");
   }
 });
-
-
+//admin login
+app.post("/admin", function (req,res) {
+  var id = req.body.id;
+  var pass = req.body.pass;
+  admin.find({id:id}, function (error, admin) {
+    if (error) res.render("error", {error:error});
+    if (admin) {
+      if (bcrypt.compareSync(pass, admin.pass)){
+        req.session.admin = admin;
+        res.render("profile", {admin: req.session.admin});
+      }else {
+        res.render("login", {error: "les coordonnés sont faux"})
+      }
+    }
+  });
+});
+//#######[Contact]#######
+app.post("/add_contact", function (req,res) {
+  contact.create({
+    nom: req.body.nom,
+    prenom: req.body.prenom,
+    fonction: req.body.fonction,
+    rattach: req.body.rattach,
+    mail: req.body.mail,
+    tel: req.body.tel
+  }, function (error, contact) {
+    if (error) res.render("profile", {ps: "An error occured", admin: req.session.admin});
+    if (contact) res.render("profile", {ps: "Success", admin: req.session.admin});
+  });
+});
 //server listening
 server.listen(80);
 console.log("listening");
