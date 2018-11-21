@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Add Contact</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Start your project here-->
+  <header>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark blue-gradient scrolling-navbar">
+      <a class="navbar-brand" href="#"><strong>Navbar</strong></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Add Contact <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><%= admin.prenom %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Déconnection</a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+  </header>
+<section style="margin-top:100px;margin-left:10px;margin-right:10px;">
+  <div class="container">
+  <div class="row">
+    <div class="col-md">
+
+    </div>
+  <div class="card-body px-lg-5 pt-0">
+    <form class="border border-light p-5">
+
+        <p class="h4 mb-4 text-center">Add Contact</p>
+
+        <label for="textInput">Nom</label>
+        <input type="text" id="nom" class="form-control mb-4" placeholder="Nom" required="true" >
+
+        <label for="textInput">Prénom</label>
+        <input type="text" id="prenom" class="form-control mb-4" placeholder="Prénom" required="true" >
+
+        <label for="textInput">Fonction</label>
+        <input type="text" id="fonction" class="form-control mb-4" placeholder="Fonction" required="true" >
+
+        <label for="textInput">Text input Label</label>
+        <input type="text" id="rattach" class="form-control mb-4" placeholder="Rattachement" required="true" >
+
+        <label for="textInput">Text input Label</label>
+        <input type="text" id="tel" class="form-control mb-4" placeholder="Téléphone" required="true" >
+
+        <input type="email" id="mail" class="form-control mb-4" placeholder="E-mail" required="true" >
+
+        <button class="btn blue-gradient btn-block my-4" type="submit">Send</button>
+
+
+    </form>
+
+    </div>
+    <div class="col-md">
+
+    </div>
+  </div>
+</div>
+</section>
+<% if (ps != "undefined") { %>
+  <%= ps %>
+  <% } %>
+
+
+
+
+
+
+  <!-- /Start your project here-->
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>index</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Start your project here-->
+  <header>
+    <% if (admin.prenom != "defined") { %>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark blue-gradient scrolling-navbar">
+      <a class="navbar-brand" href="#"><strong>Navbar</strong></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Add Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><%= admin.prenom %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Déconnection</a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+    <% if (admin.prenom != "undefined") { %>
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark blue-gradient scrolling-navbar">
+        <a class="navbar-brand" href="#"><strong>Navbar</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Add Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">LOGIN</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"></a>
+            </li>
+          </ul>
+
+        </div>
+      </nav>
+
+  </header>
+<section style="margin-top:100px;margin-left:10px;margin-right:10px;">
+  <div class="container">
+  <div class="row">
+
+  <div class="card-body px-lg-5 pt-0">
+    <form class="border border-light p-5">
+
+    <p class="h4 mb-4 text-center">Qui fait qoui?</p>
+      <div class="row">
+    <div class="col-md">
+      <select  style="margin-top:30px;border-radius: 50px;" class="browser-default custom-select mb-4" id="select">
+          <% sujets.forEach(function(sujet){ %>
+             <option value="" disabled="" selected="">Vous avez une question?</option>
+             <option value="<%= sujet %>"></option>
+             <%})%>
+           </select>
+           <%}%>
+    </div>
+     <div class="col-md">
+       <select  style="margin-top:30px;border-radius: 50px;" class="browser-default custom-select mb-4" id="select">
+         % rattachements.forEach(function(rattach){ %>
+        <option value="" disabled="" selected="">Vous etes rattachés à:</option>
+        <option value="<%= rattach %>"></option>
+        <%})%>
+
+    </select>
+<%}%>
+      </div>
+       <div class="col-md">
+
+    <button style="border-radius: 50px;"class="btn blue-gradient btn-block my-4" type="submit" onclick="search()">OK</button>
+        </div>
+      </div>
+    </div>
+</form>
+    </div>
+    <div class="col-md">
+
+    </div>
+  </div>
+</div>
+</section>
+<section style="margin-top:100px;margin-left:10px;margin-right:10px;">
+  <div class="container">
+  <div class="row">
+      <div class="card-body px-lg-5 pt-0 " >
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+
+      <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Fonction</th>
+        <th scope="col">Rarrachement</th>
+        <th scope="col">Mail</th>
+        <th scope="col">Tél</th>
+      </tr>
+    </thead>
+    <tbody>
+      <div id="data">
+
+      </div>
+      <tr>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+      </tr>
+      <tr>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+      </tr>
+      <tr>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+
+
+
+  <!-- /Start your project here-->
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript">
+  var socket = io.connect("http://localhost:80");
+  function search() {
+    var domain = document.getElementsByName("domain").value;
+    var rattach = document.getElementsByName("rattach").value;
+    socket.emit("search", {domain, rattach});
+  }
+  socket.on("found", function (contact) {
+    contact.forEach(function (cont) {
+      document.getElementById("data").innerHTML += "<tr><td>"+cont.nom+"</td><td>"+cont.prenom+"</td><td>"+cont.fonction+"</td><td>"+cont.rattach+"</td><td>"+cont.mail+"</td><td>"+cont.tel+"</td></tr>"
+    });
+  });
+  </script>
+</body>
+
+</html>
